@@ -1,13 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { createRoot }from 'react-dom/client';
+import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 import { blue, orange, red } from '@material-ui/core/colors';
 import './index.css';
 import App from './App';
 import cardDesign from './assets/card_design.jpg';
 import * as serviceWorker from './serviceWorker';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: blue,
     secondary: orange,
@@ -17,14 +17,14 @@ const theme = createMuiTheme({
   }
 });
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <React.Fragment>
     <MuiThemeProvider theme={theme}>
       <App />
     </MuiThemeProvider>
     <img className="preload" src={cardDesign} alt="" />
-  </React.Fragment>,
-  document.getElementById('root')
+  </React.Fragment>
 );
 
 // If you want your app to work offline and load faster, you can change
